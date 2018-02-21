@@ -27,8 +27,11 @@ fetch(`https://www.prisjakt.nu/kategori.php?k=1381`, opts)
             let product = {};
             product.id = id;
             if( parseInt(json.items[0][0].value) < 1 || json.items[0][json.items[0].length-1].value < 1 ) return;
-            product.pricePercentDrop = json.items[0][json.items[0].length-1].value / json.items[0][0].value;
-
+            let pricesSum = json.items[0].reduce(function(a,b){
+                return a + b;
+            });
+            product.avgPrice = pricesSum / json.items[0].length
+            product.pricePercentDrop = json.items[0][json.items[0].length-1].value / product.avgPrice; //json.items[0][0].value;
             productsWithPriceDiff.push(product);
             console.log(productsWithPriceDiff.length);
         }).then(() => {
