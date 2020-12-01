@@ -13,7 +13,7 @@ const opts = {
         cookie: 'usersettings=%7B%22sidebar_layout_mode%22%3A%22hidden%22%2C%22active_sidebar_list%22%3A%22MyLists%22%2C%22filter_layout_mode%22%3A%22maximized%22%2C%22category_matrix_layout%22%3A%22img%22%2C%22category_realtime_search%22%3A%221%22%2C%22category_nav_layout%22%3A%22list%22%2C%22products_per_page%22%3A%22100%22%2C%22products_per_page_mixed%22%3A100%2C%22products_per_page_image%22%3A%221000%22%2C%22mobile_products_per_page%22%3A%221000%22%2C%22mobile_products_per_page_mixed%22%3A%221000%22%2C%22mobile_products_per_page_image%22%3A%2230%22%7D'
     }
 };
-fetch(`https://www.prisjakt.nu/kategori.php?k=148`, opts)
+fetch(`https://www.prisjakt.nu/kategori.php?k=658`, opts)
 .then(res => res.text())
 .then(body => {
     let $ = cheerio.load(body);
